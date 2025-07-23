@@ -8,7 +8,7 @@ function lI(n, e) {
             for (const r in i)
                 if (r !== "default" && !(r in n)) {
                     const s = Object.getOwnPropertyDescriptor(i, r);
-                    s && Object.defineProperty(n, r, s.get ? s : {
+                    s && Objectab.defineProperty(n, r, s.get ? s : {
                         enumerable: !0,
                         get: () => i[r]
                     })
