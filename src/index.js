@@ -43755,12 +43755,13 @@ const I7 = (n, e) => VA(n) ? new L7(e, {
         })]
     }),
 
-    k7 = "/assets/logo.jpg",
+    k7 = "/assets/photo.jpg",
     O7 = "/assets/backend-565fc01f.png",
     U7 = "/assets/creator-dbbffaec.png",
     z7 = "/assets/mobile-896ef2f5.png",
     G7 = "/assets/web-0d05165f.png",
     H7 = "/assets/github-3b4e1609.png",
+    credlyIcon = "/assets/credly.png",
     V7 = "/assets/menu-b5599218.svg",
     W7 = "/assets/close-54702a70.svg",
     j7 = "/assets/css-79a7f026.png",
@@ -44649,7 +44650,8 @@ const Uj = ({
         description: t,
         tags: i,
         image: r,
-        source_code_link: s
+        source_code_link: s,
+        icon: o
     }) => pe(Vi.div, {
         variants: kh("up", "spring", n * 0.5, 0.75),
         children: tt("div", {
@@ -44670,9 +44672,9 @@ const Uj = ({
                                 onClick: () => window.open(s, "_blank"),
                                 className: "black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer",
                                 children: pe("img", {
-                                    src: H7,
+                                    src: o || H7,
                                     alt: "source code",
-                                    className: "w-1/2 h-1/2 object-contain"
+                                    className: o ? "w-3/4 h-3/4 object-contain" : "w-1/2 h-1/2 object-contain"
                                 })
                             })
                         })
@@ -44756,7 +44758,7 @@ const Uj = ({
                 className: "mt-20 flex flex-wrap justify-center gap-7",
                 initial: "hidden",
                 animate: "show",
-                children: itemsToRender.map((n, e) => pe(Hj, { index: e, ...n }, `certification-${e}`))
+                children: itemsToRender.map((n, e) => pe(Hj, { index: e, ...n, icon: credlyIcon }, `certification-${e}`))
               }),
             hasMore && pe("div", {
               className: "w-full flex justify-center mt-8",
