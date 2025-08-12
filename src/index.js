@@ -43728,9 +43728,9 @@ const I7 = (n, e) => VA(n) ? new L7(e, {
                     })]
                 }), tt("p", {
                     className: `${Gn.heroSubText} mt-2 text-white-100`,
-                    children: ["I develop 3D visuals, user ", pe("br", {
+                    children: ["I develop AI models, user ", pe("br", {
                         className: "sm:block hidden"
-                    }), "interfaces and web applications"]
+                    }), "interfaces and smart web applications"]
                 })]
             })]
         }), pe(SV, {}), pe("div", {
@@ -43779,9 +43779,9 @@ const I7 = (n, e) => VA(n) ? new L7(e, {
     ij = "/assets/threejs-fe160e71.svg",
     oj = "/assets/amrdo.jpeg",
     aj = "/assets/snoonu.png",
-    lj = "/assets/carrent-aba013d1.png",
-    uj = "/assets/jobit-ecb9d39c.png",
-    cj = "/assets/tripguide-892dd3b1.png",
+    lj = "/assets/mindmender.png",
+    uj = "/assets/betterhelp.png",
+    cj = "/assets/chatlounge.png",
    
 
     uT = [{
@@ -43864,69 +43864,70 @@ const I7 = (n, e) => VA(n) ? new L7(e, {
         points: ["Collected, cleaned, and analyzed large datasets to uncover trends and insights that supported strategic decision-making.", "Developed interactive dashboards and reports using tools like Excel, Power BI, and SQL to monitor KPIs and project performance.", "Automated recurring data processes to improve operational efficiency and reduce reporting time.", "Collaborated with cross-functional teams to identify data needs, design custom reports, and provide actionable insights.","Conducted ad-hoc analysis and prepared data visualizations for senior leadership to guide business strategies."]
     }],
     pj = [{
-        testimonial: "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-        name: "Sara Lee",
-        designation: "CFO",
-        company: "Acme Co",
-        image: "https://randomuser.me/api/portraits/women/4.jpg"
+        testimonial: "I thought it was impossible to make a website as beautiful as our product, but Rahim proved me wrong.",
+        name: "Musadiq",
+        designation: "Assoc. Software Developer",
+        company: "Hudson Pharma",
+        image: "https://media.licdn.com/dms/image/v2/D4D03AQH7YHLL40l3Sw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718792925760?e=1757548800&v=beta&t=vrb6zYzIheMn4JrG41l8NJwVsZ0GP3hsq9rSoWiqSKs"
     }, {
-        testimonial: "I've never met a web developer who truly cares about their clients' success like Rick does.",
-        name: "Chris Brown",
-        designation: "COO",
-        company: "DEF Corp",
-        image: "https://randomuser.me/api/portraits/men/5.jpg"
+        testimonial: "I've never met a web developer who truly cares about their clients' success like Rahim does.",
+        name: "Sehba",
+        designation: "Software Engineer",
+        company: "SZABIST",
+        image: "https://media.licdn.com/dms/image/v2/D5603AQGX6RYHMOtmOA/profile-displayphoto-shrink_800_800/B56ZYhosnuGsAc-/0/1744321040364?e=1757548800&v=beta&t=MeRfM_6BNzVykF6SrqYIMUnJhPHzBQhJD3WI3W6LlVo"
     }, {
-        testimonial: "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-        name: "Lisa Wang",
-        designation: "CTO",
-        company: "456 Enterprises",
-        image: "https://randomuser.me/api/portraits/women/6.jpg"
+        testimonial: "After Rahim optimized our website, our traffic increased by 50%. We can't thank them enough!",
+        name: "A.Hadi",
+        designation: "CS Graduate",
+        company: "SZABIST",
+        image: "https://pbs.twimg.com/profile_images/510658482970705920/gedHwe7R_400x400.jpeg"
     }],
     mj = [{
-        name: "Car Rent",
-        description: "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+        name: "Mind Mender",
+        description: "An AI-powered web app that detects emotions from text, voice, and video in real time, visualizing results in a clean, easy-to-read dashboard.",
         tags: [{
-            name: "react",
+            name: "Python-Flask",
             color: "blue-text-gradient"
-        }, {
-            name: "mongodb",
-            color: "green-text-gradient"
-        }, {
-            name: "tailwind",
+        },  {
+            name: "CNN/LSTM & Xception",
             color: "pink-text-gradient"
+        },
+        {
+            name: "MySQL",
+            color: "green-text-gradient"
         }],
         image: lj,
-        source_code_link: "https://github.com/"
+        source_code_link: "https://github.com/rahimalee1"
     }, {
-        name: "Job IT",
-        description: "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+        name: "Better Help",
+        description: "A MERN Stack Web application that enables users to search for best doctors, book appointments, receive and share reports, and search for nearby pharmacies.",
         tags: [{
-            name: "react",
+            name: "MongoDB",
             color: "blue-text-gradient"
         }, {
-            name: "restapi",
-            color: "green-text-gradient"
-        }, {
-            name: "scss",
+            name: "Express",
             color: "pink-text-gradient"
+        }, {
+            name: "React & Node.js",
+            color: "green-text-gradient"
         }],
         image: uj,
-        source_code_link: "https://github.com/"
+        source_code_link: "https://github.com/rahimalee1"
     }, {
-        name: "Trip Guide",
-        description: "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+        name: "Chat Lounge",
+        description: "A MERN real-time chat app with secure auth, 1-to-1 & group chats, message history, and emoji/media sharing—React+SCSS UI, Socket.IO for instant updates.",
         tags: [{
-            name: "nextjs",
+            name: "MongoDB",
             color: "blue-text-gradient"
         }, {
-            name: "supabase",
+            name: "Express",
             color: "green-text-gradient"
         }, {
-            name: "css",
+            name: "React & Node.js",
             color: "pink-text-gradient"
         }],
         image: cj,
-        source_code_link: "https://github.com/"
+        source_code_link: "https://github.com/rahimalee1"
     }],
     certificationsArr = [
         {
@@ -43934,30 +43935,55 @@ const I7 = (n, e) => VA(n) ? new L7(e, {
             description: "Completed the Google Advanced Data Analytics Professional Certificate.",
             issuer: "Google/Coursera",
             date: "2025",
-            link: "https://www.credly.com/earner/earned/badge/04f1be18-af49-44d3-b371-33195cc8b769",
             image: "https://images.credly.com/size/340x340/images/9267a387-1a51-4ebe-8c05-976a5ec4c3d0/image.png",
             tags: [],
             source_code_link: "https://www.credly.com/badges/04f1be18-af49-44d3-b371-33195cc8b769/public_url"
           },
           {
-            name: "Google Data Analytics",
-            description: "Completed the Google Data Analytics Professional Certificate.",
+            name: "Google IT Automation with Python",
+            description: "Earned the Google IT Automation with Python Professional Certificate.",
             issuer: "Google/Coursera",
             date: "2025",
-            link: "https://www.credly.com/earner/earned/badge/dcd65569-ec45-4a80-b761-d876a0aa1919",
-            image: "https://images.credly.com/size/340x340/images/88c25fa4-9007-42cc-b9c5-16441a878507/GCC_badge_DA_1000x1000.png",
+          
+            image: "https://images.credly.com/size/340x340/images/efbdc0d6-b46e-4e3c-8cf8-2314d8a5b971/GCC_badge_python_1000x1000.png",
             tags: [],
-            source_code_link: "https://www.credly.com/badges/6c939352-3338-43aa-88a4-7475e497c622/public_url"
+            source_code_link: "https://www.credly.com/badges/800a3d37-748e-4efa-b024-3598a69142cb"
           },
           {
-            name: "Google IT Support",
+            name: "Google Business Intelligence",
+            description: "Completed the Google Business Intelligence Certificate.",
+            issuer: "Google/Coursera",
+            date: "2025",
+            image: "https://images.credly.com/size/340x340/images/cbe961ef-3536-47a1-be43-14c461a3216e/image.png",
+            tags: [],
+            source_code_link: "https://www.credly.com/earner/earned/badge/dcd65569-ec45-4a80-b761-d876a0aa1919"
+          },
+          {
+            name: "Google Cybersecurity Professional",
+            description: "Earned the Google Cybersecurity Professional Certificate.",
+            issuer: "Google/Coursera",
+            date: "2025",
+            image: "https://images.credly.com/size/340x340/images/0bf0f2da-a699-4c82-82e2-56dcf1f2e1c7/image.png",
+            tags: [],
+            source_code_link: "https://www.credly.com/earner/earned/badge/951bb5b3-4314-45bb-a107-a1ef8a85a4a4"
+          },
+          {
+            name: "Google UX Design Professional",
+            description: "Earned the Google UX Design Professional Certificate .",
+            issuer: "Google/Coursera",
+            date: "2025",
+            image: "https://images.credly.com/size/340x340/images/78d71457-7637-4b02-8c0d-739814070bce/GCC_badge_UX_1000x1000.png",
+            tags: [],
+            source_code_link: "https://www.credly.com/badges/e494ebc4-eea2-4c60-8746-1902d53b78d3"
+          },
+          {
+            name: "Google IT Support Professional",
             description: "Earned the Google IT Support Professional Certificate.",
             issuer: "Google/Coursera",
             date: "2025",
-            link: "https://www.credly.com/earner/earned/badge/6c939352-3338-43aa-88a4-7475e497c622",
             image: "https://images.credly.com/size/340x340/images/fb97a12f-c0f1-4f37-9b7d-4a830199fe84/GCC_badge_IT_Support_1000x1000.png",
             tags: [],
-            source_code_link: "https://www.credly.com/badges/aa8e64f3-d327-4a6f-931c-8d81bf46b954/public_url"
+            source_code_link: "https://www.credly.com/badges/aa8e64f3-d327-4a6f-931c-8d81bf46b954"
           },
         // ... more
       ],
@@ -44704,32 +44730,45 @@ const Uj = ({
             }, `project-${e}`))
         })]
     }),
-    CertificationsSection = () => tt(Y1, {
-        children: [
-          tt(Vi.div, {
-            variants: Jg(),
-            children: [
-              pe("p", { className: `${Gn.sectionSubText} `, children: "My certifications" }),
-              pe("h2", { className: `${Gn.sectionHeadText}`, children: "Certifications." })
-            ]
-          }),
-          pe("div", {
-            className: "w-full flex",
-            children: pe(Vi.p, {
-              variants: kh("", "", .1, 1),
-              className: "mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]",
-              children: "Here are some of the certifications I have earned, demonstrating my commitment to continuous learning and professional development."
+    CertificationsSection = () => {
+        const [showAll, setShowAll] = U.useState(false);
+        const hasMore = certificationsArr.length > 3;
+        const itemsToRender = showAll ? certificationsArr : certificationsArr.slice(0, 3);
+      
+        return tt(Y1, {
+          children: [
+            tt(Vi.div, {
+              variants: Jg(),
+              children: [
+                pe("p", { className: `${Gn.sectionSubText} `, children: "My certifications" }),
+                pe("h2", { className: `${Gn.sectionHeadText}`, children: "Certifications." })
+              ]
+            }),
+            pe("div", {
+              className: "w-full flex",
+              children: pe(Vi.p, {
+                variants: kh("", "", .1, 1),
+                className: "mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]",
+                children: "Here are some of the certifications I have earned, demonstrating my commitment to continuous learning and professional development."
+              })
+            }),
+            pe(Vi.div, {
+                className: "mt-20 flex flex-wrap justify-center gap-7",
+                initial: "hidden",
+                animate: "show",
+                children: itemsToRender.map((n, e) => pe(Hj, { index: e, ...n }, `certification-${e}`))
+              }),
+            hasMore && pe("div", {
+              className: "w-full flex justify-center mt-8",
+              children: pe("button", {
+                className: "px-8 py-3 rounded-xl bg-[#915EFF] text-white hover:text-white",
+                onClick: () => setShowAll(!showAll),
+                children: showAll ? "View Less" : "View More"
+              })
             })
-          }),
-          pe("div", {
-            className: "mt-20 flex flex-wrap justify-center gap-7",
-            children: certificationsArr.map((n, e) => pe(Hj, {
-              index: e,
-              ...n
-            }, `certification-${e}`))
-          })
-        ]
-      }),
+          ]
+        });
+      },
     CertificationsSectionRegistered = $u(CertificationsSection, ""),
     Wj = $u(Vj, ""),
     jj = ({
