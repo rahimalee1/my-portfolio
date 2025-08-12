@@ -38899,8 +38899,8 @@ const UA = () => {
                 intensity: 1
             }), pe("primitive", {
                 object: e.scene,
-                scale: n ? .7 : .75,
-                position: n ? [0, -3, -2.2] : [0, -3.25, -1.5],
+                scale: n ? .5 : .6,
+                position: n ? [0, -3.5, -2.2] : [0, -3.75, -1.5],
                 rotation: [-.01, -.2, -.1]
             })]
         })
