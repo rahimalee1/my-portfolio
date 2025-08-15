@@ -36808,7 +36808,7 @@ class O9 {
         }
         return this.detectSupport().then(function(f) {
             if (f) return i.loadTextureImage(e, o.source, l);
-            if (r.extensionsRequired && r.extensionsRequired.indexOf(t) >= 0) throw new Error("THREE.GLTFLoader: WebP required by asset but unsupported.");
+            if (r.extensionsRequired && r.extensionsRequired.indexOf(t) >= 0) console.warn("GLTFLoader: WebP required by asset but unsupported; continuing without WebP.");
             return i.loadTexture(e)
         })
     }
@@ -38868,10 +38868,8 @@ const UA = () => {
         icon: n
     }) => tt(Fg, {
         frameloop: "demand",
-        dpr: [1, 2],
-        gl: {
-            preserveDrawingBuffer: !0
-        },
+        dpr: [1, 1.25],
+        gl: { antialias: !1, powerPreference: "high-performance", failIfMajorPerformanceCaveat: !1, preserveDrawingBuffer: !1 },
         children: [tt(U.Suspense, {
             fallback: pe(UA, {}),
             children: [pe(OA, {
