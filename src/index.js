@@ -38918,14 +38918,20 @@ const UA = () => {
             }
         }, []), tt(Fg, {
             frameloop: "demand",
-            shadows: !0,
-            dpr: [1, 2],
+            shadows: !1,
+            dpr: 1,
             camera: {
                 position: [20, 3, 5],
-                fov: 25
+                fov: 30
             },
             gl: {
-                preserveDrawingBuffer: !0
+                preserveDrawingBuffer: !0,
+                powerPreference: "default",
+                antialias: false,
+                stencil: false,
+                depth: true,
+                alpha: false,
+                premultipliedAlpha: false
             },
             children: [tt(U.Suspense, {
                 fallback: pe(UA, {}),
