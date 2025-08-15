@@ -38891,15 +38891,15 @@ const UA = () => {
             }), pe("spotLight", {
                 position: [-20, 50, 10],
                 angle: .12,
-                penumbra: 1,
-                intensity: 1,
-                castShadow: !0,
-                "shadow-mapSize": 1024
+                penumbra: .5,
+                intensity: .8,
+                castShadow: !1,
+                "shadow-mapSize": 512
             }), pe("pointLight", {
-                intensity: 1
+                intensity: .8
             }), pe("primitive", {
                 object: e.scene,
-                scale: n ? .5 : .6,
+                scale: n ? .4 : .5,
                 position: n ? [0, -3.5, -2.2] : [0, -3.75, -1.5],
                 rotation: [-.01, -.2, -.1]
             })]
