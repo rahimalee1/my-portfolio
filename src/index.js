@@ -38808,10 +38808,13 @@ const UA = () => {
     xV = () => pe(Fg, {
         shadows: !0,
         frameloop: "demand",
-        dpr: [1, 2],
+        dpr: [1, 1.25],
         gl: {
-            preserveDrawingBuffer: !0
-        },
+            antialias: !1,
+            powerPreference: "high-performance",
+            failIfMajorPerformanceCaveat: !1,
+            preserveDrawingBuffer: !1
+          },
         camera: {
             fov: 45,
             near: .1,
