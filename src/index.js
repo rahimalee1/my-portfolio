@@ -38808,13 +38808,10 @@ const UA = () => {
     xV = () => pe(Fg, {
         shadows: !0,
         frameloop: "demand",
-        dpr: [1, 1.25],
+        dpr: [1, 2],
         gl: {
-            antialias: !1,
-            powerPreference: "high-performance",
-            failIfMajorPerformanceCaveat: !1,
-            preserveDrawingBuffer: !1
-          },
+            preserveDrawingBuffer: !0
+        },
         camera: {
             fov: 45,
             near: .1,
@@ -38921,20 +38918,14 @@ const UA = () => {
             }
         }, []), tt(Fg, {
             frameloop: "demand",
-            shadows: !1,
-            dpr: 1,
+            shadows: !0,
+            dpr: [1, 2],
             camera: {
                 position: [20, 3, 5],
-                fov: 30
+                fov: 25
             },
             gl: {
-                preserveDrawingBuffer: !0,
-                powerPreference: "default",
-                antialias: false,
-                stencil: false,
-                depth: true,
-                alpha: false,
-                premultipliedAlpha: false
+                preserveDrawingBuffer: !0
             },
             children: [tt(U.Suspense, {
                 fallback: pe(UA, {}),
