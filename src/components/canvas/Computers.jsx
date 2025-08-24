@@ -1,15 +1,20 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload, useGLTF, Center } from "@react-three/drei";
+import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
 // ----------------- MODEL -----------------
 const Computers = ({ isMobile, isSmallPhone }) => {
-  const { scene } = useGLTF("./desktop_pc/scene.gltf");
+  const computer = useGLTF("./desktop_pc/scene.gltf");
 
-  // desktop unchanged; phones reduced a bit more (as you asked earlier)
-  const scale = isSmallPhone ? 0.46 : isMobile ? 0.5 : 0.75;
+  // ↓ slightly smaller than before on phones
+  const scale = isSmallPhone ? 0.42 : isMobile ? 0.44 : 0.75;
+  const position = isSmallPhone
+    ? [0, -3.55, -2.25]
+    : isMobile
+    ? [0, -3.45, -2.15]
+    : [0, -3.25, -1.5];
 
   return (
     <mesh>
@@ -23,32 +28,19 @@ const Computers = ({ isMobile, isSmallPhone }) => {
         shadow-mapSize={1024}
       />
       <pointLight intensity={1} />
-
-      {/* Center the model on PHONES only */}
-      {isMobile ? (
-        <Center>
-          <primitive
-            object={scene}
-            scale={scale}
-            rotation={[-0.01, -0.2, -0.1]}
-          />
-        </Center>
-      ) : (
-        // Desktop/tablet uses your original placement
-        <primitive
-          object={scene}
-          scale={scale}
-          position={[0, -3.25, -1.5]}
-          rotation={[-0.01, -0.2, -0.1]}
-        />
-      )}
+      <primitive
+        object={computer.scene}
+        scale={scale}
+        position={position}
+        rotation={[-0.01, -0.2, -0.1]}
+      />
     </mesh>
   );
 };
 
 // ----------------- CANVAS -----------------
 const ComputersCanvas = () => {
-  const [isMobile, setIsMobile] = useState(false);        // ≤ 500px
+  const [isMobile, setIsMobile] = useState(false);         // ≤ 500px
   const [isSmallPhone, setIsSmallPhone] = useState(false); // ≤ 380px
 
   useEffect(() => {
@@ -74,7 +66,7 @@ const ComputersCanvas = () => {
       dpr={[1, 2]}
       camera={{ position: [20, 3, 5], fov: 25 }} // unchanged
       gl={{ preserveDrawingBuffer: true }}
-      // vertical swipes scroll the page; horizontal drags rotate
+      // allow vertical page scroll while keeping rotation gestures
       style={{ touchAction: "pan-y" }}
     >
       <Suspense fallback={<CanvasLoader />}>
@@ -85,11 +77,10 @@ const ComputersCanvas = () => {
           enablePan={false}
           minPolarAngle={Math.PI / 2}
           maxPolarAngle={Math.PI / 2}
-          autoRotate={isMobile}       // gentle motion on phones
+          autoRotate={isMobile}
           autoRotateSpeed={0.8}
           enableDamping
           dampingFactor={0.08}
-          target={[0, 0, 0]}          // look at the centered model
         />
         <Computers isMobile={isMobile} isSmallPhone={isSmallPhone} />
       </Suspense>
