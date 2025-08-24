@@ -8,7 +8,7 @@ import CanvasLoader from "../Loader";
 const Computers = ({ isMobile, isSmallPhone }) => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
 
-  // size & placement: desktop unchanged, phones reduced a bit more
+  // desktop unchanged; phones reduced a bit more
   const scale = isSmallPhone ? 0.46 : isMobile ? 0.5 : 0.75;
   const position = isSmallPhone
     ? [0, -3.5, -2.15]
@@ -18,7 +18,7 @@ const Computers = ({ isMobile, isSmallPhone }) => {
 
   return (
     <mesh>
-      <hemisphereLight intensity={0.15} groundColor='black' />
+      <hemisphereLight intensity={0.15} groundColor="black" />
       <spotLight
         position={[-20, 50, 10]}
         angle={0.12}
@@ -40,18 +40,16 @@ const Computers = ({ isMobile, isSmallPhone }) => {
 
 // ----------------- CANVAS -----------------
 const ComputersCanvas = () => {
-  const [isMobile, setIsMobile] = useState(false);       // ≤ 500px
+  const [isMobile, setIsMobile] = useState(false);        // ≤ 500px
   const [isSmallPhone, setIsSmallPhone] = useState(false); // ≤ 380px
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 500px)");
     const mqSmall = window.matchMedia("(max-width: 380px)");
-
     const onChange = () => {
       setIsMobile(mq.matches);
       setIsSmallPhone(mqSmall.matches);
     };
-
     onChange();
     mq.addEventListener("change", onChange);
     mqSmall.addEventListener("change", onChange);
@@ -63,24 +61,30 @@ const ComputersCanvas = () => {
 
   return (
     <Canvas
-      frameloop='demand'
+      frameloop="demand"
       shadows
       dpr={[1, 2]}
-      camera={{ position: [20, 3, 5], fov: 25 }}      // unchanged
+      camera={{ position: [20, 3, 5], fov: 25 }}  // unchanged
       gl={{ preserveDrawingBuffer: true }}
-      // allow page to scroll smoothly on phones
-      style={{ pointerEvents: isMobile ? "none" : "auto", touchAction: "auto" }}
+      // let the browser keep vertical scrolling; horizontal drags rotate
+      style={{ touchAction: "pan-y" }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
-          enabled={!isMobile}                           // disable grab on phones
+          makeDefault
+          enabled                   // rotation enabled on phones again
           enableZoom={false}
-          maxPolarAngle={Math.PI / 2}
+          enablePan={false}
           minPolarAngle={Math.PI / 2}
+          maxPolarAngle={Math.PI / 2}
+          // gentle autorotate on mobile, off on desktop
+          autoRotate={isMobile}
+          autoRotateSpeed={0.8}
+          dampingFactor={0.08}
+          enableDamping
         />
         <Computers isMobile={isMobile} isSmallPhone={isSmallPhone} />
       </Suspense>
-
       <Preload all />
     </Canvas>
   );
