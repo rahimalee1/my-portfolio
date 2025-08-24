@@ -1,18 +1,15 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+
 import CanvasLoader from "../Loader";
 
-// ----------------- MODEL -----------------
-const Computers = ({ isMobile, isSmallPhone, modelPosition }) => {
+const Computers = ({ isMobile }) => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
-
-  // desktop unchanged; phones reduced a bit more
-  const scale = isSmallPhone ? 0.46 : isMobile ? 0.5 : 0.75;
 
   return (
     <mesh>
-      <hemisphereLight intensity={0.15} groundColor="black" />
+      <hemisphereLight intensity={0.15} groundColor='black' />
       <spotLight
         position={[-20, 50, 10]}
         angle={0.12}
@@ -23,80 +20,60 @@ const Computers = ({ isMobile, isSmallPhone, modelPosition }) => {
       />
       <pointLight intensity={1} />
       <primitive
-        object={computer.scene}
-        scale={scale}
-        position={modelPosition}                 // <-- keep your original placement
-        rotation={[-0.01, -0.2, -0.1]}
+      object={computer.scene}
+      scale={isSmallPhone ? 0.46 : isMobile ? 0.5 : 0.75}
+      position={
+      isSmallPhone ? [0, -3.5, -2.15] :
+      isMobile     ? [0, -3.4, -2.0]  :
+                   [0, -3.25, -1.5]
+      }
+      rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
   );
 };
 
-// ----------------- CANVAS -----------------
 const ComputersCanvas = () => {
-  const [isMobile, setIsMobile] = useState(false);         // ≤ 500px
-  const [isSmallPhone, setIsSmallPhone] = useState(false); // ≤ 380px
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 500px)");
-    const mqSmall = window.matchMedia("(max-width: 380px)");
-    const onChange = () => {
-      setIsMobile(mq.matches);
-      setIsSmallPhone(mqSmall.matches);
+    // Add a listener for changes to the screen size
+    const mediaQuery = window.matchMedia("(max-width: 500px)");
+
+    // Set the initial value of the `isMobile` state variable
+    setIsMobile(mediaQuery.matches);
+
+    // Define a callback function to handle changes to the media query
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
     };
-    onChange();
-    mq.addEventListener("change", onChange);
-    mqSmall.addEventListener("change", onChange);
+
+    // Add the callback function as a listener for changes to the media query
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+    // Remove the listener when the component is unmounted
     return () => {
-      mq.removeEventListener("change", onChange);
-      mqSmall.removeEventListener("change", onChange);
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, []);
 
-  // same positions you used (desktop unchanged, phones nudged back/down)
-  const modelPosition = isSmallPhone
-    ? [0, -3.5, -2.15]
-    : isMobile
-    ? [0, -3.4, -2.0]
-    : [0, -3.25, -1.5];
-
-  // tell OrbitControls to look exactly at the model -> perfectly centered
-  const controlsTarget = [
-    modelPosition[0],
-    modelPosition[1] + 0.8,   // slight look-up like before
-    modelPosition[2],
-  ];
-
   return (
     <Canvas
-      frameloop="demand"
+      frameloop='demand'
       shadows
       dpr={[1, 2]}
-      camera={{ position: [20, 3, 5], fov: 25 }}  // unchanged
+      camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}
-      // keep vertical page scroll smooth; horizontal drag rotates
-      style={{ touchAction: "pan-y" }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
-          makeDefault
-          enabled
           enableZoom={false}
-          enablePan={false}
-          minPolarAngle={Math.PI / 2}
           maxPolarAngle={Math.PI / 2}
-          target={controlsTarget}         // <-- center the model in view
-          autoRotate={isMobile}           // rotation back on phones
-          autoRotateSpeed={0.8}
-          enableDamping
-          dampingFactor={0.08}
+          minPolarAngle={Math.PI / 2}
         />
-        <Computers
-          isMobile={isMobile}
-          isSmallPhone={isSmallPhone}
-          modelPosition={modelPosition}
-        />
+        <Computers isMobile={isMobile} />
       </Suspense>
+
       <Preload all />
     </Canvas>
   );
