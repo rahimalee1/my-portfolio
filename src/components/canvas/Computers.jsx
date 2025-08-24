@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import { OrbitControls, Preload, useGLTF, Center } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
@@ -8,12 +8,12 @@ import CanvasLoader from "../Loader";
 const Computers = ({ isMobile, isSmallPhone }) => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
 
-  // ↓ slightly smaller than before on phones
-  const scale = isSmallPhone ? 0.42 : isMobile ? 0.44 : 0.75;
+  // desktop unchanged; phones reduced
+  const scale = isSmallPhone ? 0.46 : isMobile ? 0.5 : 0.75;
   const position = isSmallPhone
-    ? [0, -3.55, -2.25]
+    ? [0, -3.5, -2.15]
     : isMobile
-    ? [0, -3.45, -2.15]
+    ? [0, -3.4, -2.0]
     : [0, -3.25, -1.5];
 
   return (
@@ -28,12 +28,15 @@ const Computers = ({ isMobile, isSmallPhone }) => {
         shadow-mapSize={1024}
       />
       <pointLight intensity={1} />
-      <primitive
-        object={computer.scene}
-        scale={scale}
-        position={position}
-        rotation={[-0.01, -0.2, -0.1]}
-      />
+
+      {/* Center the model so it doesn't drift to the right */}
+      <Center disableY position={position}>
+        <primitive
+          object={computer.scene}
+          scale={scale}
+          rotation={[-0.01, -0.2, -0.1]}
+        />
+      </Center>
     </mesh>
   );
 };
@@ -64,9 +67,9 @@ const ComputersCanvas = () => {
       frameloop="demand"
       shadows
       dpr={[1, 2]}
-      camera={{ position: [20, 3, 5], fov: 25 }} // unchanged
+      camera={{ position: [20, 3, 5], fov: 25 }}  // unchanged
       gl={{ preserveDrawingBuffer: true }}
-      // allow vertical page scroll while keeping rotation gestures
+      // keep vertical page scroll smooth; horizontal drag rotates
       style={{ touchAction: "pan-y" }}
     >
       <Suspense fallback={<CanvasLoader />}>
@@ -77,6 +80,8 @@ const ComputersCanvas = () => {
           enablePan={false}
           minPolarAngle={Math.PI / 2}
           maxPolarAngle={Math.PI / 2}
+          // look at the center of the (now centered) model
+          target={[0, 0.8, 0]}
           autoRotate={isMobile}
           autoRotateSpeed={0.8}
           enableDamping
