@@ -202,3 +202,98 @@
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
   }
 }
+
+
+:root{
+  --accent1:#7A67D0;  /* royal violet, desaturated */
+  --accent2:#66B8E1;  /* sky blue, soft */
+  --ink:#0f1526;
+}
+.btn-icon{
+  width: 1rem;
+  height: 1rem;
+  transition: transform .2s ease;
+  vertical-align: middle;     /* new */
+}
+/* Idle: transparent fill + WHITE border only */
+.btn-videobox{
+  font: inherit;              /* family, size, weight, line-height */
+  letter-spacing: inherit;
+  text-transform: inherit;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .5rem 1rem;
+  background: transparent;                 /* transparent box */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0;                         /* square */
+  border: 2px solid rgba(255,255,255,.95);  /* solid white border */
+  transition: background .25s ease, color .2s ease, transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+/* Hover: gradient fill + gradient border (and remove shadow) */
+.btn-videobox:hover{
+  border-color: transparent;                /* let gradient border show */
+  background:
+    linear-gradient(135deg,var(--accent1),var(--accent2)) padding-box,
+    linear-gradient(135deg,var(--accent1),var(--accent2)) border-box;
+  color: var(--ink);
+  transform: translate(-2px,-2px);
+  box-shadow: none;                         /* <-- remove any shadow on hover */
+}
+
+/* rails (right + bottom) */
+.btn-videobox::before,
+.btn-videobox::after{
+  content:"";
+  position:absolute;
+  background:#000;
+  opacity: 1;                                /* <-- visible by default */
+  transition: transform .2s ease, opacity .2s ease;  /* <-- animate opacity too */
+  pointer-events:none;
+}
+.btn-videobox::before{ /* right rail */
+  right:-6px; top:6px; width:6px; height:calc(100% - 12px);
+}
+.btn-videobox::after{  /* bottom rail */
+  left:6px; bottom:-6px; width:calc(100% - 12px); height:6px;
+}
+
+/* HOVER: hide the rails (shadow) */
+.btn-videobox:hover::before,
+.btn-videobox:hover::after{
+  opacity: 0;                                /* <-- fade rails out on hover */
+  transform: none;                           /* stop the nudge */
+}
+
+.btn-icon{ width:1rem; height:1rem; transition: transform .2s ease; }
+.btn-videobox:hover .btn-icon{ transform: translateY(1px); }
+
+/* ===== Other nav links: underline + pop hover ===== */
+.link-pop{
+  position: relative;
+  display: inline-block;
+  text-decoration: none;                  /* remove default underline */
+  transition: color .2s ease, transform .2s ease;
+}
+.link-pop::after{
+  content:"";
+  position:absolute;
+  left:0; right:0;
+  bottom:-6px;                            /* underline offset */
+  height:2px;
+  background: linear-gradient(135deg,var(--accent1),var(--accent2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .2s ease;
+}
+.link-pop:hover{
+  transform: translateY(-1px) scale(1.03); /* subtle pop */
+}
+.link-pop:hover::after{
+  transform: scaleX(1);                   /* animate underline in */
+}
+
