@@ -242,12 +242,11 @@
     linear-gradient(135deg,var(--accent1),var(--accent2)) border-box;
   color: var(--ink);
   transform: translate(-2px,-2px);
-  box-shadow: none;                         /* <-- remove any shadow on hover */
+  box-shadow: none;
+  font-weight: 600;                           /* <-- remove any shadow on hover */
 }
 
-.btn-videobox:hover span{
-  font-weight: 700;
-}
+
 /* rails (right + bottom) */
 .btn-videobox::before,
 .btn-videobox::after{
