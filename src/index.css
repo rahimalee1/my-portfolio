@@ -245,6 +245,9 @@
   box-shadow: none;                         /* <-- remove any shadow on hover */
 }
 
+.btn-videobox:hover span{
+  font-weight: 700;
+}
 /* rails (right + bottom) */
 .btn-videobox::before,
 .btn-videobox::after{
