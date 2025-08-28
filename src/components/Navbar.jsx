@@ -121,7 +121,7 @@ const Navbar = () => {
               <li className="pt-1">
                 {/* Resume button (mobile) */}
                 <a
-                  href="/Muhammad Rahim.pdf"
+                  href="/Rahim.pdf"
                   download
                   className="btn-videobox w-full justify-center text-[16px] font-medium"
                   onClick={() => setToggle(false)}
